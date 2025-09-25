@@ -1,4 +1,88 @@
-// Navigation functionality
+// Load dynamic data
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Update hero
+    document.querySelector('.hero-title').innerHTML = `Hi, I'm <span class="highlight">${data.profile.name}</span>`;
+    document.querySelector('.hero-subtitle').textContent = data.profile.title;
+    document.querySelector('.hero-description').textContent = data.profile.description;
+
+    // Update stats
+    const statsContainer = document.querySelector('.card-stats');
+    statsContainer.innerHTML = data.profile.stats.map(stat => `
+      <div class="stat">
+        <span class="stat-number">${stat.number}</span>
+        <span class="stat-label">${stat.label}</span>
+      </div>
+    `).join('');
+
+    // Render projects
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+      projectsContainer.innerHTML = data.projects.map(project => `
+        <div class="project-card">
+          <div class="project-image">
+            <img src="${project.image}" alt="${project.alt}">
+            <div class="project-overlay">
+              <button class="project-btn">View Details</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <div class="project-tech">
+              ${project.tech.map(tech => `<span>${tech}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render skills
+    const skillsContainer = document.getElementById('skills-container');
+    if (skillsContainer) {
+      skillsContainer.innerHTML = data.skills.map(skillCat => `
+        <div class="skill-category">
+          <h3>${skillCat.category}</h3>
+          ${skillCat.items.map(item => `
+            <div class="skill-bar">
+              <div class="skill-name">${item.name}</div>
+              <div class="skill-level" data-level="${item.level}"></div>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+    }
+
+    // Update about features
+    const featuresContainer = document.querySelector('.about-features');
+    if (featuresContainer) {
+      featuresContainer.innerHTML = data.about.features.map(feature => `
+        <div class="feature">
+          <span class="feature-icon">${feature.icon}</span>
+          <h4>${feature.title}</h4>
+          <p>${feature.description}</p>
+        </div>
+      `).join('');
+    }
+
+    // Update contact
+    document.querySelector('.contact-item:nth-child(1) span:last-child').textContent = data.profile.contact.email;
+    document.querySelector('.contact-item:nth-child(2) span:last-child').textContent = data.profile.contact.phone;
+    document.querySelector('.contact-item:nth-child(3) span:last-child').textContent = data.profile.contact.location;
+    const socialContainer = document.querySelector('.social-links');
+    if (socialContainer) {
+      socialContainer.innerHTML = data.profile.contact.social.map(social => `
+        <a href="${social.url}" class="social-link">${social.name}</a>
+      `).join('');
+    }
+
+    // Re-observe skill bars after rendering
+    const newSkillBars = document.querySelectorAll('.skill-level');
+    newSkillBars.forEach(bar => observer.observe(bar));
+  })
+  .catch(error => console.error('Error loading data:', error));
+  // Navigation functionality
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 

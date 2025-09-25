@@ -10,6 +10,7 @@
 <body>
     <!-- Animated Background -->
     <div class="animated-background">
+        <canvas id="particles-canvas"></canvas>
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
@@ -121,61 +122,9 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/ecom.jpg" alt="Modern web application dashboard with analytics">
-                        <div class="project-overlay">
-                            <button class="project-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A modern e-commerce solution with advanced features and seamless user experience.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/fit.jpg" alt="Mobile app interface with clean design">
-                        <div class="project-overlay">
-                            <button class="project-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Fitness App</h3>
-                        <p>Mobile application for tracking workouts and nutrition with personalized recommendations.</p>
-                        <div class="project-tech">
-                            <span>React Native</span>
-                            <span>Firebase</span>
-                            <span>Redux</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/analytic.jpg" alt="Data visualization dashboard with analytics">
-                        <div class="project-overlay">
-                            <button class="project-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Analytics Dashboard</h3>
-                        <p>Real-time data visualization platform for business intelligence and decision making.</p>
-                        <div class="project-tech">
-                            <span>Vue.js</span>
-                            <span>D3.js</span>
-                            <span>Python</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="projects-container" class="projects-grid">
+                <!-- Projects will be dynamically loaded here -->
+            </div> 
         </div>
     </section>
 
@@ -183,54 +132,8 @@
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-bar">
-                        <div class="skill-name">HTML/CSS</div>
-                        <div class="skill-level" data-level="95%"></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-name">JavaScript</div>
-                        <div class="skill-level" data-level="90%"></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-name">React</div>
-                        <div class="skill-level" data-level="88%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Backend Development</h3>
-                    <div class="skill-bar">
-                        <div class="skill-name">Node.js</div>
-                        <div class="skill-level" data-level="85%"></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-name">Python</div>
-                        <div class="skill-level" data-level="80%"></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-name">Database</div>
-                        <div class="skill-level" data-level="82%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Design & Tools</h3>
-                    <div class="skill-bar">
-                        <div class="skill-name">UI/UX Design</div>
-                        <div class="skill-level" data-level="90%"></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-name">Figma</div>
-                        <div class="skill-level" data-level="92%"></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-name">Photoshop</div>
-                        <div class="skill-level" data-level="78%"></div>
-                    </div>
-                </div>
+            <div id="skills-container" class="skills-container">
+                <!-- Skills will be dynamically loaded here -->
             </div>
         </div>
     </section>
@@ -291,7 +194,7 @@
             <p>&copy; 2024 ABHAY RAI. All rights reserved.</p>
         </div>
     </footer>
-
+    <script src="animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
