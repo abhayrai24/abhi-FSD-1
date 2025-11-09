@@ -1,22 +1,22 @@
 {
   "profile": {
-    "name": "Your Name",
+    "name": "ABHAY RAI",
     "title": "Creative Developer & Designer",
     "description": "I create beautiful, functional digital experiences that push boundaries and inspire users.",
     "stats": [
-      { "number": "50+", "label": "Projects" },
+      { "number": "5+", "label": "Projects" },
       { "number": "5+", "label": "Years" },
       { "number": "100%", "label": "Satisfaction" }
     ],
     "contact": {
-      "email": "your.email@example.com",
-      "phone": "+1 (555) 123-4567",
-      "location": "Your Location",
+      "email": "abhay1rai123@gmail.com",
+      "phone": "+91 8726942216",
+      "location": "Greater Noida (NCR)",
       "social": [
         { "name": "LinkedIn", "url": "#" },
-        { "name": "GitHub", "url": "#" },
+        { "name": "GitHub", "url": "https://github.com/abhayrai24" },
         { "name": "Twitter", "url": "#" },
-        { "name": "Instagram", "url": "#" }
+        { "name": "Instagram", "url": "https://www.instagram.com/rai_abhi_16/" }
       ]
     }
   },
@@ -24,21 +24,21 @@
     {
       "title": "E-Commerce Platform",
       "description": "A modern e-commerce solution with advanced features and seamless user experience.",
-      "image": "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=E-Commerce",
+      "image": "/img/ecom.jpg",
       "tech": ["React", "Node.js", "MongoDB"],
       "alt": "Modern web application dashboard with analytics"
     },
     {
       "title": "Fitness App",
       "description": "Mobile application for tracking workouts and nutrition with personalized recommendations.",
-      "image": "https://via.placeholder.com/400x250/06b6d4/ffffff?text=Fitness+App",
+      "image": "/img/fit.jpg",
       "tech": ["React Native", "Firebase", "Redux"],
       "alt": "Mobile app interface with clean design"
     },
     {
       "title": "Analytics Dashboard",
       "description": "Real-time data visualization platform for business intelligence and decision making.",
-      "image": "https://via.placeholder.com/400x250/6366f1/ffffff?text=Analytics",
+      "image": "/img/analytic.jpg",
       "tech": ["Vue.js", "D3.js", "Python"],
       "alt": "Data visualization dashboard with charts and graphs"
     }
@@ -71,9 +71,21 @@
   ],
   "about": {
     "features": [
-      { "icon": "🚀", "title": "Fast Development", "description": "Quick turnaround without compromising quality" },
-      { "icon": "🎨", "title": "Creative Design", "description": "Beautiful interfaces that enhance user experience" },
-      { "icon": "💡", "title": "Innovative Solutions", "description": "Cutting-edge approaches to complex problems" }
+      {
+        "icon": "🚀",
+        "title": "Fast Development",
+        "description": "Quick turnaround without compromising quality"
+      },
+      {
+        "icon": "🎨",
+        "title": "Creative Design",
+        "description": "Beautiful interfaces that enhance user experience"
+      },
+      {
+        "icon": "💡",
+        "title": "Innovative Solutions",
+        "description": "Cutting-edge approaches to complex problems"
+      }
     ]
   }
 }

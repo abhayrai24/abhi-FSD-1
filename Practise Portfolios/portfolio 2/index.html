@@ -1,200 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abhay's Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="data" href="data.json" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#6366f1" />
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-background">
-        <canvas id="particles-canvas"></canvas>
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <canvas id="particles-canvas"></canvas>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span>Portfolio</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span>Portfolio</span>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Hi, I'm Abhay Rai<br />
+            <span class="highlighted-text">A Passionate Creator</span>
+          </h1>
+          <p class="hero-subtitle">Creative Developer & Designer</p>
+          <p class="hero-description">
+            I create beautiful, functional digital experiences that push boundaries and inspire users.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="scrollToSection('projects')">
+              View My Work
+            </button>
+            <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+              Get In Touch
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card">
+            <div class="card-content">
+              <div class="profile-image">
+                <img
+                  src="/img/abhay.jpg"
+                  alt="Professional portrait of a creative developer"
+                  class="profile-img"
+                />
+              </div>
+              <div class="card-stats" id="card-stats">
+                <!-- Stats will be dynamically loaded -->
+              </div>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I’m Abhay Rai, a B.Tech Computer Science Engineering student at ABES Engineering College, passionate about technology, problem-solving, and continuous self-growth. Alongside my academics, I’m working on building strong programming skills, improving communication, and exploring opportunities in content creation and multiple income streams. I believe in discipline, consistency, and smart work to achieve success, and I’m on a journey of becoming a confident, skilled, and impactful individual who makes a difference.
+          </p>
+          <p>
+            I specialize in front-end development, UI/UX design, and creating interactive experiences that engage users and drive business goals.
+          </p>
+          <div class="about-features" id="about-features">
+            <!-- Features will be dynamically loaded -->
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="rotating-cube">
+            <div class="cube-face front">Design</div>
+            <div class="cube-face back">Develop</div>
+            <div class="cube-face top">Create</div>
+            <div class="cube-face bottom">Innovate</div>
+            <div class="cube-face left">Solve</div>
+            <div class="cube-face right">Inspire</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div id="projects-container" class="projects-grid">
+        <!-- Projects will be dynamically loaded -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div id="skills-container" class="skills-container">
+        <!-- Skills will be dynamically loaded -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Let's work together</h3>
+          <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <span id="contact-email">abhay1rai123@gmail.com</span>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">Hi, I'm <span class="highlight">ABHAY RAI</span></h1>
-                    <p class="hero-subtitle">Creative Developer & Designer</p>
-                    <p class="hero-description">I create beautiful, functional digital experiences that push boundaries and inspire users.</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary" onclick="scrollToSection('projects')">View My Work</button>
-                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">Get In Touch</button>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="floating-card">
-                        <div class="card-content">
-                            <div class="profile-image">
-                                <img src="/img/abhay.jpg" alt="Professional portrait of a creative developer" class="profile-img">
-                            </div>
-                            <div class="card-stats">
-                                <div class="stat">
-                                    <span class="stat-number">2+</span>
-                                    <span class="stat-label">Projects</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-number">2</span>
-                                    <span class="stat-label">Years</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-number">100%</span>
-                                    <span class="stat-label">Satisfaction</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="contact-item">
+              <span class="contact-icon">📱</span>
+              <span id="contact-phone">+91 8726942216</span>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I’m Abhay Rai, a B.Tech Computer Science Engineering student at ABES Engineering College, passionate about technology, problem-solving, and continuous self-growth. Alongside my academics, I’m working on building strong programming skills, improving communication, and exploring opportunities in content creation and multiple income streams. I believe in discipline, consistency, and smart work to achieve success, and I’m on a journey of becoming a confident, skilled, and impactful individual who makes a difference.</p>
-                    <p>I specialize in front-end development, UI/UX design, and creating interactive experiences that engage users and drive business goals.</p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <span class="feature-icon">🚀</span>
-                            <h4>Fast Development</h4>
-                            <p>Quick turnaround without compromising quality</p>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-icon">🎨</span>
-                            <h4>Creative Design</h4>
-                            <p>Beautiful interfaces that enhance user experience</p>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-icon">💡</span>
-                            <h4>Innovative Solutions</h4>
-                            <p>Cutting-edge approaches to complex problems</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="rotating-cube">
-                        <div class="cube-face front">Design</div>
-                        <div class="cube-face back">Develop</div>
-                        <div class="cube-face top">Create</div>
-                        <div class="cube-face bottom">Innovate</div>
-                        <div class="cube-face left">Solve</div>
-                        <div class="cube-face right">Inspire</div>
-                    </div>
-                </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span id="contact-location">Greater Noida (NCR)</span>
             </div>
+          </div>
+          <div class="social-links" id="social-links">
+            <!-- Social links will be dynamically loaded -->
+          </div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div id="projects-container" class="projects-grid">
-                <!-- Projects will be dynamically loaded here -->
-            </div> 
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div id="skills-container" class="skills-container">
-                <!-- Skills will be dynamically loaded here -->
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required />
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's work together</h3>
-                    <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <span>abhay1rai123@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📱</span>
-                            <span>+91 8726942216</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span>Greater Noida (NCR)</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="https://github.com/abhayrai24" class="social-link">GitHub</a>
-                        <a href="#" class="social-link">Twitter</a>
-                        <a href="https://www.instagram.com/rai_abhi_16/" class="social-link">Instagram</a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required />
             </div>
+            <div class="form-group">
+              <input type="text" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 ABHAY RAI. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="animations.js"></script>
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 ABHAY RAI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="animations.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

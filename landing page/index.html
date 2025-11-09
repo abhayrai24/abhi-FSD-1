@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bucks Burgers: Super delicious burgers and more in town! Book a table, order now, and enjoy our menu.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> <!-- For animations -->
+  <link rel="stylesheet" href="style.css"> <!-- Your custom CSS -->
+  <title>Bucks Burgers</title>
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-text">Bucks Burgers</span>
+        <img src="icon.png" alt="Bucks Burgers Logo" class="logo-img">
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#one" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#shop" class="nav-link">Shop</a></li>
+          <li><a href="#blog" class="nav-link">Blog</a></li>
+          <li><a href="#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon" id="search-toggle"></i>
+            <input type="text" class="search-input" placeholder="Search..." id="search-input">
+          </div>
+          <button class="btn btn-primary reservation-btn" id="reservation-btn">Reservation</button>
+          <button class="btn btn-secondary dark-mode-toggle" id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="one" class="hero" data-aos="fade-in">
+      <div class="hero-content">
+        <img src="icon.png" alt="Delicious Burger" class="hero-burger" data-aos="zoom-in" data-aos-delay="200">
+        <h1 class="hero-title">Super Delicious Burger <span>in Town!</span></h1>
+        <p class="hero-subtitle">Experience the best flavors with our premium ingredients.</p>
+        <a href="reservation.html"><button class="btn btn-primary hero-btn" id="book-table-btn">Book a Table</button></a>
+      </div>
+    </section>
+
+    <section id="about" class="about" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Our Menu Highlights</h2>
+        <div class="menu-grid">
+          <article class="menu-item" data-aos="flip-left" data-aos-delay="100">
+            <i class="fa-solid fa-pizza-slice menu-icon"></i>
+            <h3>Mexican Pizza</h3>
+            <p>Authentic flavors with a twist – perfect for sharing.</p>
+            <img src="pizza.jpeg" alt="Mexican Pizza" loading="lazy">
+          </article>
+          <article class="menu-item" data-aos="flip-left" data-aos-delay="200">
+            <i class="fa-solid fa-bottle-droplet menu-icon"></i>
+            <h3>Soft Drinks</h3>
+            <p>Refreshing beverages to complement your meal.</p>
+            <img src="soft drink.jpeg" alt="Soft Drinks" loading="lazy">
+          </article>
+          <article class="menu-item" data-aos="flip-left" data-aos-delay="300">
+            <i class="fa-solid fa-burger-fries menu-icon"></i>
+            <h3>French Fry</h3>
+            <p>Crispy and golden – the ultimate side dish.</p>
+            <img src="fries.jpeg" alt="French Fries" loading="lazy">
+          </article>
+          <article class="menu-item" data-aos="flip-left" data-aos-delay="400">
+            <i class="fa-solid fa-burger menu-icon"></i>
+            <h3>Burger Kingo</h3>
+            <p>Juicy, flavorful, and made to perfection.</p>
+            <img src="burger.jpeg" alt="Burger" loading="lazy">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="shop" data-aos="fade-right">
+      <div class="container">
+        <div class="shop-content">
+          <img src="Small Meal.jpeg" alt="Small Meal" class="shop-img" loading="lazy" data-aos="zoom-in">
+          <div class="shop-text">
+            <h2>Caferio, Burgers, and Best Pizzas <span>in Town!</span></h2>
+            <p>Indulge in our curated selection of delicious meals, inspired by global cuisines.</p>
+            <ul class="features">
+              <li><i class="fa-solid fa-circle-check"></i> Delicious & Healthy Foods</li>
+              <li><i class="fa-solid fa-circle-check"></i> Specific Family and Kids Zone</li>
+              <li><i class="fa-solid fa-circle-check"></i> Music & Other Facilities</li>
+              <li><i class="fa-solid fa-circle-check"></i> Fastest Food Home Delivery</li>
+            </ul>
+            <a href="mailto:Info@gmail.com?subject=Order Now" class="btn btn-primary">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="blog" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Our Range of <span>Delicious Foods</span></h2>
+        <div class="slider" id="food-slider">
+          <div class="slider-track">
+            <figure class="slide">
+              <img src="Chicken.jpeg" alt="Juicy Chicken" loading="lazy">
+              <figcaption>Juicy Chicken</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="meal.jpeg" alt="Big Meals" loading="lazy">
+              <figcaption>Big Meals</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="salad.jpeg" alt="Bowl of Good Fibres" loading="lazy">
+              <figcaption>Bowl of Good Fibres</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="chickenBowl.jpeg" alt="Bowl Full of Flavour" loading="lazy">
+              <figcaption>Bowl Full of Flavour</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="dessert.jpeg" alt="It's Time for Sweets" loading="lazy">
+              <figcaption>It's Time for Sweets</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="noodles.jpeg" alt="Smokey Noodles" loading="lazy">
+              <figcaption>Smokey Noodles</figcaption>
+            </figure>
+          </div>
+          <button class="slider-btn prev" id="prev-btn">&lt;</button>
+          <button class="slider-btn next" id="next-btn">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="delivery" data-aos="zoom-in">
+      <div class="container">
+        <h2>Delivering Flavors to Your Doorstep!</h2>
+        <a href="mailto:Info@gmail.com?subject=Order Now" class="btn btn-primary">Order Now</a>
+      </div>
+    </section>
+
+    <section class="reviews" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Our Customer Reviews</h2>
+        <div class="reviews-grid">
+          <img src="review-1.jpeg" alt="Customer Review 1" loading="lazy">
+          <img src="review-2.jpeg" alt="Customer Review 2" loading="lazy">
+          <img src="review-4.jpeg" alt="Customer Review 3" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="footer" data-aos="fade-in">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Bucks Burgers</h3>
+          <p>Serving up the best burgers and more with passion and quality.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:BucksBurger@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p><strong>Phone:</strong> <a href="tel:+918726942216">+91 8726942216</a></p>
+          <p><strong>Email:</strong> <a href="mailto:BucksBurger@gmail.com">BucksBurger@gmail.com</a></p>
+          <p>153, Crossing Republik<br>Ghaziabad, U.P.-201016</p>
+        </div>
+        <div class="footer-section">
+          <h3>Opening Hours</h3>
+          <p>Monday-Friday: 8:00 AM - 10:00 PM</p>
+          <p>Saturday: 10:00 AM - 4:00 PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Bucks Burgers Pvt Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modal for Reservation -->
+  <div id="reservation-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Book a Table</h2>
+      <form id="reservation-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Sticky Header
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    // Search Toggle
+    document.getElementById('search-toggle').addEventListener('click', () => {
+      document.getElementById('search-input').classList.toggle('active');
+    });
+
+    // Modal for Reservation
+    const modal = document.getElementById('reservation-modal');
+    const btn = document.getElementById('reservation-btn');
+    const close = document.getElementById('close-modal');
+    btn.onclick = () => modal.style.display = 'block';
+    close.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+    // Dark Mode Toggle
+    document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Slider Functionality
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let index = 0;
+    const slideWidth = slides[0].offsetWidth + 20; // Adjust for margin
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    });
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

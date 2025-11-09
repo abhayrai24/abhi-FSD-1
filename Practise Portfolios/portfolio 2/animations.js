@@ -7,7 +7,7 @@ class ParticleSystem {
 
     this.resizeCanvas();
     this.particles = [];
-    this.mouse = { x: 0, y: 0 };
+    this.mouse = { x: null, y: null };
     this.initParticles();
     this.animate();
 
@@ -15,6 +15,12 @@ class ParticleSystem {
     document.addEventListener('mousemove', (e) => {
       this.mouse.x = e.clientX;
       this.mouse.y = e.clientY;
+    });
+
+    // Reset mouse position when leaving window
+    document.addEventListener('mouseout', () => {
+      this.mouse.x = null;
+      this.mouse.y = null;
     });
 
     // Resize handler
@@ -31,8 +37,8 @@ class ParticleSystem {
     const numParticles = 100;
     for (let i = 0; i < numParticles; i++) {
       this.particles.push({
-        x: Math.random() * this.canvas!.width,
-        y: Math.random() * this.canvas!.height,
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
         vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
         radius: Math.random() * 3 + 1,
@@ -47,13 +53,15 @@ class ParticleSystem {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     this.particles.forEach(particle => {
-      // Physics: attract to mouse
-      const dx = this.mouse.x - particle.x;
-      const dy = this.mouse.y - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < 100) {
-        particle.vx += (dx / distance) * 0.05;
-        particle.vy += (dy / distance) * 0.05;
+      // Physics: attract to mouse if mouse is inside window
+      if (this.mouse.x !== null && this.mouse.y !== null) {
+        const dx = this.mouse.x - particle.x;
+        const dy = this.mouse.y - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 100 && distance > 0) {
+          particle.vx += (dx / distance) * 0.05;
+          particle.vy += (dy / distance) * 0.05;
+        }
       }
 
       // Update position
@@ -63,8 +71,20 @@ class ParticleSystem {
       particle.vy *= 0.98;
 
       // Bounce off edges
-      if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
-      if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+      if (particle.x < 0) {
+        particle.x = 0;
+        particle.vx *= -1;
+      } else if (particle.x > this.canvas.width) {
+        particle.x = this.canvas.width;
+        particle.vx *= -1;
+      }
+      if (particle.y < 0) {
+        particle.y = 0;
+        particle.vy *= -1;
+      } else if (particle.y > this.canvas.height) {
+        particle.y = this.canvas.height;
+        particle.vy *= -1;
+      }
 
       // Draw particle
       this.ctx.beginPath();
