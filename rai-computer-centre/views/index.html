@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rai Computer Centre - Learn Computer Skills</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">🖥️ Rai Computer Centre</a>
+      <button class="mobile-menu-btn">☰</button>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/enroll">Enroll Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Rai Computer Centre</h1>
+      <p>Empowering students with quality computer education and practical skills for a digital future</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/courses" class="btn">Explore Courses</a>
+        <a href="/enroll" class="btn btn-secondary">Enroll Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="icon">🎓</div>
+        <h3 id="total-students">500+</h3>
+        <p>Students Trained</p>
+      </div>
+      <div class="stat-card">
+        <div class="icon">📚</div>
+        <h3 id="total-courses">15+</h3>
+        <p>Courses Available</p>
+      </div>
+      <div class="stat-card">
+        <div class="icon">👨‍🏫</div>
+        <h3>10+</h3>
+        <p>Expert Instructors</p>
+      </div>
+      <div class="stat-card">
+        <div class="icon">⭐</div>
+        <h3>100%</h3>
+        <p>Job Assistance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses -->
+  <section class="container">
+    <div class="section-title">
+      <h2>Featured Courses</h2>
+      <p>Explore our most popular computer training programs</p>
+    </div>
+    
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading courses...</p>
+    </div>
+
+    <div class="course-grid" id="featured-courses"></div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/courses" class="btn btn-primary">View All Courses</a>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="container" style="background: white; padding: 4rem 2rem;">
+    <div class="section-title">
+      <h2>Why Choose Rai Computer Centre?</h2>
+      <p>Your success is our priority</p>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="icon">💻</div>
+        <h4>Modern Lab Facilities</h4>
+        <p>State-of-the-art computer labs with latest software and hardware</p>
+      </div>
+      <div class="stat-card">
+        <div class="icon">👥</div>
+        <h4>Expert Faculty</h4>
+        <p>Learn from experienced professionals with industry expertise</p>
+      </div>
+      <div class="stat-card">
+        <div class="icon">📜</div>
+        <h4>Certified Courses</h4>
+        <p>Get recognized certifications upon course completion</p>
+      </div>
+      <div class="stat-card">
+        <div class="icon">🕐</div>
+        <h4>Flexible Timings</h4>
+        <p>Choose from morning, afternoon, or evening batches</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="hero" style="padding: 4rem 2rem;">
+    <div class="hero-content">
+      <h2>Ready to Start Your Learning Journey?</h2>
+      <p>Join thousands of students who have transformed their careers with us</p>
+      <a href="/enroll" class="btn" style="margin-top: 1rem;">Enroll Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Rai Computer Centre</h3>
+        <p>Empowering students with quality computer education since 2010.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="/">Home</a>
+        <a href="/courses">Courses</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p>📍 123 Main Street, City</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ info@raicomputercentre.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>Opening Hours</h3>
+        <p>Monday - Saturday</p>
+        <p>9:00 AM - 8:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Rai Computer Centre. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script>
+    // Load featured courses
+    async function loadFeaturedCourses() {
+      showLoading(true);
+      try {
+        const response = await api.getCourses();
+        showLoading(false);
+        
+        if (response.success) {
+          const courses = response.data.slice(0, 6); // Show first 6 courses
+          displayCourses(courses);
+          
+          // Update stats
+          document.getElementById('total-courses').textContent = response.count + '+';
+        }
+      } catch (error) {
+        showLoading(false);
+        console.error('Error loading courses:', error);
+      }
+    }
+
+    function displayCourses(courses) {
+      const container = document.getElementById('featured-courses');
+      
+      if (courses.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--text-light);">No courses available at the moment.</p>';
+        return;
+      }
+      
+      container.innerHTML = courses.map(course => `
+        <div class="course-card">
+          <div class="course-image">
+            ${getCourseIcon(course.category)}
+          </div>
+          <div class="course-content">
+            <span class="course-category">${course.category}</span>
+            <h3>${course.name}</h3>
+            <p>${course.description.substring(0, 100)}...</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱️ ${course.duration}</span>
+              <span class="course-price">${formatCurrency(course.fees)}</span>
+            </div>
+            <a href="/enroll?course=${course._id}" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Enroll Now</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCourseIcon(category) {
+      const icons = {
+        'Programming': '💻',
+        'Web Development': '🌐',
+        'Office Applications': '📊',
+        'Graphics Design': '🎨',
+        'Database': '🗄️',
+        'Networking': '🔗',
+        'Other': '📚'
+      };
+      return icons[category] || '📚';
+    }
+
+    // Load courses on page load
+    document.addEventListener('DOMContentLoaded', loadFeaturedCourses);
+  </script>
+</body>
+</html>

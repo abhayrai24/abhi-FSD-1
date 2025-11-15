@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Courses - Rai Computer Centre</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">🖥️ Rai Computer Centre</a>
+      <button class="mobile-menu-btn">☰</button>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/enroll">Enroll Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero" style="padding: 4rem 2rem;">
+    <div class="hero-content">
+      <h1>Our Courses</h1>
+      <p>Choose from our wide range of computer training programs</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="container">
+    <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <label style="font-weight: 600;">Filter by:</label>
+      <select id="category-filter" style="padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-radius: 8px;">
+        <option value="">All Categories</option>
+        <option value="Programming">Programming</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Office Applications">Office Applications</option>
+        <option value="Graphics Design">Graphics Design</option>
+        <option value="Database">Database</option>
+        <option value="Networking">Networking</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <select id="level-filter" style="padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-radius: 8px;">
+        <option value="">All Levels</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+      
+      <button id="reset-filters" class="btn btn-secondary" style="margin-left: auto;">Reset Filters</button>
+    </div>
+
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading courses...</p>
+    </div>
+
+    <div class="course-grid" id="courses-container"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Rai Computer Centre</h3>
+        <p>Empowering students with quality computer education since 2010.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="/">Home</a>
+        <a href="/courses">Courses</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p>📍 123 Main Street, City</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ info@raicomputercentre.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>Opening Hours</h3>
+        <p>Monday - Saturday</p>
+        <p>9:00 AM - 8:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Rai Computer Centre. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script>
+    let allCourses = [];
+
+    // Load all courses
+    async function loadCourses(filters = {}) {
+      showLoading(true);
+      try {
+        const response = await api.getCourses(filters);
+        showLoading(false);
+        
+        if (response.success) {
+          allCourses = response.data;
+          displayCourses(allCourses);
+        }
+      } catch (error) {
+        showLoading(false);
+        showAlert('Error loading courses. Please try again.', 'error');
+      }
+    }
+
+    function displayCourses(courses) {
+      const container = document.getElementById('courses-container');
+      
+      if (courses.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--text-light); grid-column: 1/-1;">No courses found matching your criteria.</p>';
+        return;
+      }
+      
+      container.innerHTML = courses.map(course => `
+        <div class="course-card">
+          <div class="course-image">
+            ${getCourseIcon(course.category)}
+          </div>
+          <div class="course-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="course-category">${course.category}</span>
+              <span style="background: var(--bg-light); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--text-light);">${course.level}</span>
+            </div>
+            <h3>${course.name}</h3>
+            <p>${course.description}</p>
+            ${course.instructor ? `<p style="color: var(--text-light); font-size: 0.875rem; margin-top: 0.5rem;">👨‍🏫 Instructor: ${course.instructor}</p>` : ''}
+            <div class="course-meta">
+              <span class="course-duration">⏱️ ${course.duration}</span>
+              <span class="course-price">${formatCurrency(course.fees)}</span>
+            </div>
+            <a href="/enroll?course=${course._id}" class="btn btn-primary" style="width: 100%; margin-top: 1rem; text-align: center;">Enroll Now</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCourseIcon(category) {
+      const icons = {
+        'Programming': '💻',
+        'Web Development': '🌐',
+        'Office Applications': '📊',
+        'Graphics Design': '🎨',
+        'Database': '🗄️',
+        'Networking': '🔗',
+        'Other': '📚'
+      };
+      return icons[category] || '📚';
+    }
+
+    // Filter functionality
+    document.getElementById('category-filter').addEventListener('change', applyFilters);
+    document.getElementById('level-filter').addEventListener('change', applyFilters);
+    
+    function applyFilters() {
+      const category = document.getElementById('category-filter').value;
+      const level = document.getElementById('level-filter').value;
+      
+      const filters = {};
+      if (category) filters.category = category;
+      if (level) filters.level = level;
+      
+      loadCourses(filters);
+    }
+
+    document.getElementById('reset-filters').addEventListener('click', () => {
+      document.getElementById('category-filter').value = '';
+      document.getElementById('level-filter').value = '';
+      loadCourses();
+    });
+
+    // Load courses on page load
+    document.addEventListener('DOMContentLoaded', () => loadCourses());
+  </script>
+</body>
+</html>

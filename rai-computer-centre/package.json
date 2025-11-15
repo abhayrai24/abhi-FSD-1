@@ -1,0 +1,25 @@
+{
+  "name": "rai-computer-centre",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node server/config/seed.js"
+  },
+  "keywords": ["computer-training", "education", "courses"],
+  "author": "Rai Computer Centre",
+  "license": "ISC",
+  "description": "Full-stack website for Rai Computer Centre - Computer Training Institute",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "express-validator": "^7.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.4",
+    "nodemailer": "^7.0.10"
+  }
+}
